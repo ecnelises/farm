@@ -1,10 +1,13 @@
 #ifndef FOOD_H
 #define FOOD_H
 
-class Food {
+#include "Item.h"
+
+class Food : public Item {
 public:
-    Food() {}
-    int consume() const { return 20; }
+    virtual ~Food() = 0;
+    virtual int consume() const = 0;
+    virtual const char* name() const = 0;
 };
 
 #endif

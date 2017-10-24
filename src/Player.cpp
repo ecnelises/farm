@@ -11,10 +11,6 @@ Player::Player(double px, double py)
     strength = 100;
 }
 
-Player::~Player()
-{
-}
-
 bool Player::move(const Scene& scene)
 {
     int d = std::floor(Scene::distance(scene.getX(), scene.getY(), x, y));

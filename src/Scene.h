@@ -6,7 +6,7 @@
 class Scene {
 public:
     Scene(double fx, double fy, std::string n);
-    ~Scene();
+    virtual ~Scene() = default;
     double getX(void) const;
     double getY(void) const;
     const std::string& getName() const;

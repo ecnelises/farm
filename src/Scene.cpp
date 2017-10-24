@@ -8,10 +8,6 @@ Scene::Scene(double px, double py, std::string n)
     name = n;
 }
 
-Scene::~Scene()
-{
-}
-
 double Scene::getX(void) const
 {
     return x;

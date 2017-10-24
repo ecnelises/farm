@@ -7,7 +7,7 @@ class Food;
 class Player {
 public:
     Player(double px = 0.0, double py = 0.0);
-    ~Player();
+    ~Player() = default;
     bool move(const Scene& place);
     void eat(const Food& food);
 private:
