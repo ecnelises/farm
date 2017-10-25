@@ -1,5 +1,5 @@
-#ifndef FARM_BACKPACK_H
-#define FARM_BACKPACK_H
+#ifndef BACKPACK_H
+#define BACKPACK_H
 
 #include "vector"
 #include "BackpackEntry.h"
@@ -13,4 +13,4 @@ public:
     bool remove();
 };
 
-#endif //FARM_BACKPACK_H
+#endif // BACKPACK_H

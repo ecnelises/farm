@@ -28,3 +28,73 @@
 ## 编译
 
 使用 cmake 处理构建问题。
+
+在项目目录下执行 `cmake .` 可以生成 Makefile，Windows 上的解决方案请自行搜索。cmake 对于 C++ 项目是一个有力的构建工具。
+
+## 代码约定
+
+请遵循必要的代码约定。
+
+### 头文件保护
+
+每个头文件请以必要的预编译指令开头。文件名采用大驼峰命名法。如果文件名由多个单词组成，宏名由下划线连接。
+
+```c++
+// BackpackEntry.h
+#ifndef BACKPACK_ENTRY_H
+#define BACKPACK_ENTRY_H
+
+// Code here
+
+#endif // BACKPACK_ENTRY_H
+```
+
+头文件保护非常重要，请切记。
+
+### 基本命名
+
+请保持简单的命名风格，类名用大驼峰，方法用小驼峰，局部变量名尽量简单、保持在一个小写单词以内。花括号不换行。
+
+```c++
+class Backpack {
+public:
+    Backpack();
+    BackpackEntry* getFirst() {
+        size_t size = backpack->size();
+        // Other code
+    }
+};
+```
+
+## 版本控制
+
+采用 git 进行版本控制，GitHub 作为代码托管平台。git 的使用入门在互联网上非常容易找到。
+
+项目采用基于分支的开发模型。主干分支称为 master，不应该直接在 master 上开发和提交代码。clone 下代码库之后，请首先从 master 新建自己的分支，名字自定。
+
+```
+git checkout -b dev-imbant
+# Now you are in a new branch
+```
+
+每次改动的文件都需要使用 git add 命令加入暂存区。提交信息请书写得简洁明了。
+
+```
+git commit -m "加入了新的 Farm 模型"
+```
+
+然后你需要同步到远程的代码库。
+
+```
+git push origin dev-imbant # Here use your branch name
+```
+
+由于是自己的分支，理论上不应该有别人参与，所以一般不会出现冲突的情况。
+
+同步之后，如果想要求合并到 master，需要在 GitHub 的项目页面上新建一个 Pull Request，并告知大家。合并之后，远程仓库的 master 分支会被更新。因此建议每次工作前先执行一次同步操作。
+
+```
+git pull origin master
+```
+
+如有任何问题，包括 git 使用以及冲突合并等，请联系大家。如果你使用图形化的 git 管理工具，请参照类似的使用流程。
