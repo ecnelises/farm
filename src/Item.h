@@ -1,6 +1,10 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-class Item {};
+#include "BackpackEntry.h"
+
+class Item : public BackpackEntry {
+    void show();
+};
 
 #endif
