@@ -7,7 +7,7 @@ class Wheat : public Crop{
 public:
     virtual ~Wheat();
     Status getStatus(void) const;
-    void creat(void){
+    void creat(void) {
         cout<<"Crop:Wheat:Creat:I'm created";
     }
 private:
