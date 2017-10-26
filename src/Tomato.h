@@ -1,14 +1,14 @@
-#ifndef WHEAT_H
-#define WHEAT_H
+#ifndef TOMATO_H
+#define TOMATO_H
 
 #include "Crop.h"
 
-class Wheat : public Crop{
+class Tomato{
 public:
-    virtual ~Wheat();
+    virtual ~Tomato();
     Status getStatus(void) const;
     void creat(void){
-        cout<<"Crop:Wheat:Creat:I'm created";
+        cout << "Crop:Tomato:Creat:I'm created";
     }
 private:
     Status status;
