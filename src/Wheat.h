@@ -5,10 +5,13 @@
 
 class Wheat : public Crop{
 public:
-  virtual ~Wheat();
-  virtual Food* produce(void) override;
-  virtual Corn* propagate(void) const override;
+    virtual ~Wheat();
+    Status getStatus(void) const;
+    void creat(void) {
+        cout<<"Crop:Wheat:Creat:I'm created";
+    }
 private:
-  Status status;
+    Status status;
 }
+
 #endif
