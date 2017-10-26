@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "Point.h"
 #include <string>
 #include "Farm.h"
 #include "Backpack.h"
@@ -8,7 +9,7 @@
 #include "State.h"
 
 class Scene;
-class Food;
+class PlayerController;
 
 //enum StateType {
 //	SLEEP, MOVE, EAT, HUNT, GETPACK
@@ -16,23 +17,21 @@ class Food;
 
 class Player {
 public:
-    Player(double px = 0.0, double py = 0.0, int strength = 100);
-    ~Player();
-	void SetState(State* state);
-	//StateType GetState();
+    Player(Point<double> cord, PlayerController* ctrl) :
+        strength(100), coordinate(cord), controller(ctrl) {}
+    virtual ~Player() = default;
     bool move(const Scene& place);
+    bool hunt(const Farm& farm, std::string type);
     void eat(const Food& food);
 	void sleep();
-    bool hunt(const Farm& farm, std::string type);
     void getpack(BackpackEntry* backpackEntry);
 private:
     int strength;
-	int liveday;
-    double x;
-    double y;
+    Point<double> coordinate;
+    PlayerController* controller;
     Backpack backpack;
 	State *m_state;
-	//StateType state;
+	int liveday;
 };
 
 #endif

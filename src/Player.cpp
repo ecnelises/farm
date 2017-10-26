@@ -6,7 +6,6 @@
 #include <iostream>
 #include "SpecificState.h"
 
-
 Player::Player(double px, double py, int pstrength)
 {
     x = px;
