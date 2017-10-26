@@ -1,19 +1,24 @@
 #ifndef SCENE_H
 #define SCENE_H
 
+#include "Point.h"
 #include <string>
 
 class Scene {
 public:
-    Scene(double fx, double fy, std::string n);
+    Scene(Point<double> cord, std::string n) : coordinate(cord), name(n) {}
     virtual ~Scene() = default;
-    double getX(void) const;
-    double getY(void) const;
-    const std::string& getName() const;
-    static double distance(double x1, double y1, double x2, double y2);
+
+    const Point<double>& getCoordinate(void) const {
+        return coordinate;
+    }
+
+    const std::string& getName() const {
+        return name;
+    }
+
 private:
-    double x;
-    double y;
+    Point<double> coordinate;
     std::string name;
 };
 

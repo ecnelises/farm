@@ -5,7 +5,7 @@
 
 class Food : public Item {
 public:
-    virtual ~Food() = 0;
+    virtual ~Food() = default;
     virtual int consume() const = 0;
     virtual const char* name() const = 0;
 };

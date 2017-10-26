@@ -1,27 +1,21 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <string>
-#include "Farm.h"
-#include "Backpack.h"
-#include "BackpackEntry.h"
+#include "Point.h"
 
 class Scene;
-class Food;
+class PlayerController;
 
 class Player {
 public:
-    Player(double px = 0.0, double py = 0.0);
-    ~Player() = default;
+    Player(Point<double> cord, PlayerController* ctrl) :
+        strength(100), coordinate(cord), controller(ctrl) {}
+    virtual ~Player() = default;
     bool move(const Scene& place);
-    void eat(const Food& food);
-    bool kill(const Farm& farm, std::string type);
-    void get(BackpackEntry* backpackEntry);
 private:
     int strength;
-    double x;
-    double y;
-    Backpack backpack;
+    Point<double> coordinate;
+    PlayerController* controller;
 };
 
 #endif

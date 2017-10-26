@@ -5,13 +5,6 @@
 #include <cmath>
 #include <iostream>
 
-Player::Player(double px, double py)
-{
-    x = px;
-    y = py;
-    strength = 100;
-}
-
 bool Player::move(const Scene& scene)
 {
     int d = std::floor(Scene::distance(scene.getX(), scene.getY(), x, y));
