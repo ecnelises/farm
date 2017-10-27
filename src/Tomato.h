@@ -2,6 +2,7 @@
 #define TOMATO_H
 
 #include <iostream>
+#include <string>
 #include "Crop.h"
 
 class Tomato: public Crop{
@@ -13,9 +14,13 @@ public:
     }
 	void TomatoMate() {
 		std::cout << "Tomato mate with tomato" << std::endl;
-	}
+    }
+    std::string getName(void) const{
+        return name;
+    }
 private:
     Status status;
+    std::string name;
 };
 
 #endif
