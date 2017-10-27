@@ -24,6 +24,7 @@ public:
     bool hunt(const Farm& farm, std::string type);
     void eat(const Food& food);
 	void sleep();
+	void SetState(State *state);
     void getpack(BackpackEntry* backpackEntry);
 private:
     int strength;

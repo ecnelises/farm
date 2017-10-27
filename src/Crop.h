@@ -11,9 +11,9 @@ public:
         seedling,
         mature,
         fruit
-    } 
+    }; 
     virtual ~Crop() = 0;
     virtual void creat(void) = 0;
-}
+};
 
 #endif
