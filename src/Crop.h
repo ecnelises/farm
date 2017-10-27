@@ -3,7 +3,7 @@
 
 #include <memory>
 
-//作物类
+// 作物类
 class Crop{
 public:
     enum Status{

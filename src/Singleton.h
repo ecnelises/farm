@@ -4,9 +4,9 @@
 template<typename T>
 class Singleton {
 public:
-    static Singleton& instance()
+    static T& instance()
     {
-        static Singleton inst;
+        static T inst;
         return inst;
     }
 protected:
