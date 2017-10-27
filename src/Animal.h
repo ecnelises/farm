@@ -6,6 +6,7 @@
 #define ANIMAL_H
 
 #include "Entity.h"
+#include <iostream>
 
 class Animal : public Entity {
 public:
