@@ -6,7 +6,8 @@
 
 class Farm : public Scene {
 public:
-    Animal* pick(void);
+	Animal* pick(void) const;
+	bool remove(Animal* animal) const;
 private:
     std::list<Animal*> animals;
 };

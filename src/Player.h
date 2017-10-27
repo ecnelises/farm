@@ -7,28 +7,30 @@
 #include "Backpack.h"
 #include "BackpackEntry.h"
 #include "State.h"
+#include "Food.h"
 
 class Scene;
 class PlayerController;
 
-//enum StateType {
-//	SLEEP, MOVE, EAT, HUNT, GETPACK
-//};
+enum StateType {
+	SLEEP, MOVE, EAT, HUNT, GETPACK
+};
 
 class Player {
 public:
-    Player(Point<double> cord, PlayerController* ctrl) :
-        strength(100), coordinate(cord), controller(ctrl) {}
+	Player(Scene* scene, PlayerController* ctrl);
     virtual ~Player() = default;
-    bool move(const Scene& place);
+    bool move(Scene& place);
     bool hunt(const Farm& farm, std::string type);
     void eat(const Food& food);
 	void sleep();
-	void SetState(State *state);
     void getpack(BackpackEntry* backpackEntry);
+	void Operate(StateType states, Scene* scene, Food* food);
+	void SetState(State *state);
+	Scene* getCurrentScene();
 private:
     int strength;
-    Point<double> coordinate;
+    Scene *m_scene;
     PlayerController* controller;
     Backpack backpack;
 	State *m_state;

@@ -3,6 +3,7 @@
 
 #include "Point.h"
 #include <string>
+#include <cmath>
 
 class Scene {
 public:
@@ -16,6 +17,11 @@ public:
     const std::string& getName() const {
         return name;
     }
+
+	const int distance(Point<double> coor1) const{
+		int distance = std::ceil(sqrt((coordinate.x - coor1.x)*(coordinate.x - coor1.x) + (coordinate.y - coor1.y)*(coordinate.y - coor1.y)));
+		return distance;
+	}
 
 private:
     Point<double> coordinate;
