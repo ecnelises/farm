@@ -13,9 +13,13 @@ public:
     }
 	void PotatoMate() {
 		std::cout << "Potato mate with potato" << std::endl;
-	}
+    }
+    std::string getName(void) const{
+        return name;
+    }
 private:
     Status status;
+    std::string name;
 };
 
 #endif
