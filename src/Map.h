@@ -6,6 +6,8 @@
 #define MAP_H
 
 #include "Scene.h"
+#include "Positioned.h"
+#include "Player.h"
 #include <vector>
 #include <memory>
 
@@ -26,9 +28,10 @@ public:
     void iterateScenes(SceneStrategy* strategy);
 
     // 工厂方法，以生成新的场景
-    void spawnScene(void);
+    void generateScene(void);
 private:
-    std::vector<std::unique_ptr<Scene>> scenes;
+    std::vector<Positioned<Scene>> scenes;
+    Positioned<Player> player;
 };
 
 #endif // MAP_H

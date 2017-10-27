@@ -1,3 +1,7 @@
+//
+// Farm.h
+// 农场类，农场是栽培作物的地方
+//
 #ifndef FARM_H
 #define FARM_H
 
@@ -12,4 +16,4 @@ private:
     std::list<Animal*> animals;
 };
 
-#endif
+#endif // FARM_H

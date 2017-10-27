@@ -10,10 +10,7 @@
 
 class Scene;
 class PlayerController;
-
-//enum StateType {
-//	SLEEP, MOVE, EAT, HUNT, GETPACK
-//};
+class Food;
 
 class Player {
 public:

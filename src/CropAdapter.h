@@ -1,5 +1,5 @@
-#ifndef MATEADAPTER_H
-#define MATEADAPTER_H
+#ifndef CROP_ADAPTER_H
+#define CROP_ADAPTER_H
 
 #include <iostream>
 #include "Potato.h"
@@ -23,4 +23,5 @@ public:
 		return new PTatoto();
 	}
 };
-#endif
+
+#endif // CROP_ADAPTER_H
