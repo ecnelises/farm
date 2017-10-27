@@ -2,6 +2,7 @@
 #define FARM_H
 
 #include "Animal.h"
+#include "Scene.h"
 #include <list>
 
 class Farm : public Scene {
