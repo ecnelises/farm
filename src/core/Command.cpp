@@ -1,5 +1,7 @@
 #include "Command.h"
 #include "Application.h"
+#include "Scene.h"
+#include "Entity.h"
 #include <iostream>
 #include <sstream>
 #include <algorithm>
@@ -11,7 +13,7 @@ static bool caseInsensitiveCompare(
         return false;
     }
     for (auto i = s1.cbegin(), j = s2.cbegin();
-            i != s1.cend(), j != s2.cend(); ++i, ++j) {
+            i != s1.cend() && j != s2.cend(); ++i, ++j) {
         if (std::tolower(*i) != std::tolower(*j)) {
             return false;
         }
@@ -22,15 +24,15 @@ static bool caseInsensitiveCompare(
 static Scene* getSceneById(int id) {
     Scene* sce = nullptr;
     int cnt = 0;
-    Application::getInstance()->getMap().eachScene([&](auto& scene){
+    Application::instance().getMap().eachScene([&](auto scene){
         if (id == ++cnt) {
-            sce = &scene;
+            sce = scene;
         }
     });
     return sce;
 }
 
-CommandInterpreter::CommandInterpreter(Application* app) {
+CommandInterpreter::CommandInterpreter() {
     std::cout << "CommandInterpreter initialized.\n";
 }
 
@@ -69,17 +71,17 @@ Command* CommandInterpreter::interpret(const std::string& cmd) {
 void ListCommand::execute(void) {
     std::cout << "class:ListCommand method:execute\n";
     int cnt = 0;
-    Application::getInstance()->getMap().eachScene([&](auto& scene){
-        std::cout << ++cnt << " : " << scene.typeName() << '\n';
+    Application::instance().getMap().eachScene([&](auto scene){
+        std::cout << ++cnt << " : " << scene->typeName() << '\n';
     });
 }
 
 void ShowCommand::execute(void) {
     std::cout << "class:ShowCommand method:execute\n";
     int cnt = 0;
-    scene->eachEntity([&](auto& entity){
-        std::cout << ++cnt << " : " << entity.typeName() << '\n';
-    })
+    scene->eachEntity([&](auto entity){
+        std::cout << ++cnt << " : " << entity->typeName() << '\n';
+    });
 }
 
 void HelpCommand::execute(void) {
@@ -90,7 +92,7 @@ void HelpCommand::execute(void) {
 
 void QuitCommand::execute(void) {
     std::cout << "class:QuitCommand method:execute\n";
-    Application::getInstance()->setExit(true);
+    Application::instance().setExit(true);
     std::cout << "Press any key to exit...";
     std::cin.get();
 }

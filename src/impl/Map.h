@@ -8,6 +8,7 @@
 #include "Scene.h"
 #include "Positioned.h"
 #include "Player.h"
+#include "PlayerController.h"
 #include <vector>
 #include <memory>
 #include <functional>
@@ -27,7 +28,7 @@ public:
 
     // 提供一组接口使得可以通过自定义的策略来遍历所有的场景
     void eachScene(SceneStrategy* strategy);
-    void eachScene(std::function<void(Scene&)> fn);
+    void eachScene(std::function<void(Scene*)> fn);
 
     // 工厂方法，以生成新的场景
     void generateScene(void);

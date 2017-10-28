@@ -1,9 +1,12 @@
 #include "Map.h"
+#include "SimplePlayerController.h"
+#include "Pasture.h"
+#include "Farm.h"
 #include <iostream>
 #include <random>
 #include <ctime>
 
-Map::Map() {
+Map::Map() : player(Player(), {0, 0}) {
     std::cout << "Map initialized\n";
     std::default_random_engine gen;
     std::uniform_int_distribution<int> dis(7, 15);
@@ -21,13 +24,13 @@ Map::~Map() {
 
 void Map::eachScene(SceneStrategy* strategy) {
     for (auto i : scenes) {
-        strategy->act(*i);
+        strategy->act(i);
     }
 }
 
-void Map::eachScene(std::function<void(Scene&)> fn) {
+void Map::eachScene(std::function<void(Scene*)> fn) {
     for (auto i : scenes) {
-        fn(*i);
+        fn(i);
     }
 }
 

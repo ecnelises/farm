@@ -9,10 +9,11 @@
 
 class Application;
 class Scene;
+class Command;
 
 class CommandInterpreter {
 public:
-    CommandInterpreter(Application* app);
+    CommandInterpreter();
     Command* interpret(const std::string& cmd);
 };
 

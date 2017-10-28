@@ -5,6 +5,7 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
+#include "Map.h"
 #include "Singleton.h"
 
 // Application 类包含了整个程序的运行逻辑
@@ -13,6 +14,15 @@
 class Application : public Singleton<Application> {
 public:
     void run(void);
+    void setExit(bool val) {
+        exitFlag = val;
+    }
+    Map& getMap() {
+        return map;
+    }
+private:
+    Map map;
+    bool exitFlag;
 };
 
 #endif
