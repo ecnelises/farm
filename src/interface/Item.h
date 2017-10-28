@@ -3,11 +3,12 @@
 #define ITEM_H
 
 #include <string>
+#include "BackpackEntry.h"
 
-class Item{
+class Item : public BackpackEntry {
 public:
 	Item(std::string n, std::string des);
-    virtual void show() = 0;
+    virtual void show();
 	std::string getName();
 	std::string getDes();
 private:

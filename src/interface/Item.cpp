@@ -8,6 +8,11 @@ Item::Item(std::string n, std::string des){
 	description = des;
 }
 
+virtual void Item::show() {
+	std::cout << getName() << "  ";
+}
+
+
 std::string Item::getName() {
 	return name;
 }
