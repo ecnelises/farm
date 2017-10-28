@@ -7,13 +7,14 @@
 #include <ctime>
 
 Map::Map() : player(Player(), {0, 0}) {
-    std::cout << "Map initialized\n";
+    player.get().setController(new SimplePlayerController(&player.get()));
     std::default_random_engine gen;
     std::uniform_int_distribution<int> dis(7, 15);
     int times = dis(gen);
     for (int i = 0; i < times; ++i) {
         generateScene();
     }
+    std::cout << "Map initialized\n";
 }
 
 Map::~Map() {

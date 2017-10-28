@@ -11,7 +11,7 @@ class Pasture : public Scene {
 public:
     Pasture(Decorator* dec = new Decorator) : Scene("Farm", dec) {}
     virtual ~Pasture();
-    virtual const char* typeName() const;
+    virtual const char* typeName(void) const;
     virtual Entity* spawn(void);
 };
 
