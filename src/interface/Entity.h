@@ -15,6 +15,9 @@ public:
     // 每种实体被消灭之后都会有一个产物
     // 这里的产物可以根据实际情况而变更，作为 Item 类的一个抽象工厂而存在
     virtual Item* pick(void) = 0;
+
+    // 实体类别的名字
+    virtual const char* typeName() const = 0;
 };
 
 #endif // ENTITY_H

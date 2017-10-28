@@ -1,12 +1,20 @@
 #include "Application.h"
 #include "Player.h"
+#include "Command.h"
+#include <memory>
+#include <string>
 #include <iostream>
 
 void Application::run(void) {
+    std::cout << "class:Application method:run\n";
     std::cout << "Welcome to Happy Farm game.\n";
-    bool quit_flag = false;
-    while (!quit_flag) {
+    exitFlag = false;
+    std::string command;
+    CommandInterpreter intp;
+    while (!exitFlag) {
         std::cout << "Round begins.\n";
-        
+        std::cin >> command;
+        std::unique_ptr<Command> p(intp.interpret(command));
+        p->execute();
     }
 }

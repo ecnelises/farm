@@ -14,21 +14,22 @@ class Food;
 
 class Player {
 public:
-    Player(Point<double> cord, PlayerController* ctrl) :
-        strength(100), coordinate(cord), controller(ctrl) {}
-    virtual ~Player() = default;
+    Player() : strength(100), controller(nullptr) {}
+    virtual ~Player();
     bool move(const Scene& place);
     bool hunt(const Farm& farm, std::string type);
     void eat(const Food& food);
 	void sleep();
-	void SetState(State *state);
+	// void SetState(State *state);
     void getpack(BackpackEntry* backpackEntry);
+    void setController(PlayerController* ctrl) {
+        controller = ctrl;
+    }
 private:
     int strength;
-    Point<double> coordinate;
     PlayerController* controller;
     Backpack backpack;
-	State *m_state;
+	// State *m_state;
 	int liveday;
 };
 

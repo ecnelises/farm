@@ -1,22 +1,21 @@
+//
+// Wheat.h
+// 小麦类，作为作物类的实现
+//
 #ifndef WHEAT_H
 #define WHEAT_H
 
-#include <string>
 #include "Crop.h"
+#include <string>
 
-class Wheat : public Crop{
+class Item;
+
+class Wheat : public Crop {
 public:
-    virtual ~Wheat();
-    Status getStatus(void) const;
-    void creat(void) {
-        cout<<"Crop:Wheat:Creat:I'm created";
-    }
-    std::string getName(void) const{
-        return name;
-    }
-private:
-    Status status;
-    std::string name;
-}
+    Wheat() = default;
+    virtual ~Wheat() = default;
+    virtual Item* pick(void);
+    virtual const char* typeName(void) const;
+};
 
-#endif
+#endif // WHEAT_H

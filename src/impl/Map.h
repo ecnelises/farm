@@ -8,8 +8,10 @@
 #include "Scene.h"
 #include "Positioned.h"
 #include "Player.h"
+#include "PlayerController.h"
 #include <vector>
 #include <memory>
+#include <functional>
 
 class SceneStrategy;
 class SceneIterator;
@@ -17,7 +19,7 @@ class SceneIterator;
 // Map 类作为整个游戏当中场景的容器
 class Map {
 public:
-    Map(unsigned n_init_scenes);
+    Map();
     ~Map();
 
     // 提供一组可以用户自行操作遍历的迭代器接口
@@ -25,12 +27,13 @@ public:
     const SceneIterator cend(void) const;
 
     // 提供一组接口使得可以通过自定义的策略来遍历所有的场景
-    void iterateScenes(SceneStrategy* strategy);
+    void eachScene(SceneStrategy* strategy);
+    void eachScene(std::function<void(Scene*)> fn);
 
     // 工厂方法，以生成新的场景
     void generateScene(void);
 private:
-    std::vector<Positioned<Scene>> scenes;
+    std::vector<Scene*> scenes;
     Positioned<Player> player;
 };
 

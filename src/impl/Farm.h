@@ -5,15 +5,16 @@
 #ifndef FARM_H
 #define FARM_H
 
-#include "Animal.h"
 #include "Scene.h"
+#include "Decorator.h"
 #include <list>
 
 class Farm : public Scene {
 public:
-    Animal* pick(void);
-private:
-    std::list<Animal*> animals;
+    Farm(Decorator* dec = new Decorator) : Scene("Farm", dec) {}
+    virtual ~Farm();
+    virtual const char* typeName(void) const;
+    virtual Entity* spawn(void);
 };
 
 #endif // FARM_H
