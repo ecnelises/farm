@@ -5,19 +5,16 @@
 #ifndef FARM_H
 #define FARM_H
 
-#include "Animal.h"
 #include "Scene.h"
+#include "Decorator.h"
 #include <list>
 
 class Farm : public Scene {
 public:
-    Animal* pick(void);
-    virtual ~Farm() = default;
-
+    Farm(Decorator* dec = new Decorator) : Scene("Farm", dec) {}
+    virtual ~Farm();
+    virtual const char* typeName(void) const;
     virtual Entity* spawn(void);
-private:
-    // 由用户实现的工厂方法，根据用户自定义的各种生物，返回不同生物。
-    virtual Animal* createAnimal() = 0;
 };
 
 #endif // FARM_H

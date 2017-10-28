@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include "Entity.h"
 #include "Decorator.h"
 
 class SceneGenerateDecoratee : public Decoratee {
@@ -15,12 +16,14 @@ void SceneGenerateDecoratee::act(void) {
 }
 
 Scene::~Scene() {
+    for (auto i : entities) {
+        delete i;
+    }
     delete generateDecorator;
 }
 
 void Scene::realGenerate(void) {
-    auto newbie = this->spawn();
-    entities.push_back(std::unique_ptr<Entity>(newbie));
+    entities.push_back(this->spawn());
 }
 
 void Scene::generate(void) {

@@ -7,9 +7,9 @@
 
 #include "Observable.h"
 #include "Decorator.h"
+#include <functional>
 #include <list>
 #include <string>
-#include <memory>
 
 class Entity;
 
@@ -36,15 +36,31 @@ public:
 
     // 实际生成并添加生物的操作，公开的 generate 函数是装饰器封装之后的方法
     void realGenerate(void);
+
+    // 获取类别名称
+    virtual const char* typeName() const = 0;
+
+    // 遍历每个实体
+    void eachEntity(std::function<void(Entity*)> fn) {
+        for (auto& i : entities) {
+            fn(i);
+        }
+    }
 private:
     // 每个场景都具有一个独立的名字
     std::string name;
 
     // 场景对于其中的实体具有所有权关系
-    std::list<std::unique_ptr<Entity>> entities;
+    std::list<Entity*> entities;
 
+protected:
     // 装饰器
     Decorator* generateDecorator;
+};
+
+class SceneStrategy {
+public:
+    virtual void act(Scene* scene) = 0;
 };
 
 #endif // SCENE_H
