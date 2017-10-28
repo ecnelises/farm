@@ -6,6 +6,7 @@
 
 class Fruit : public Item{
 public:
+	Fruit(std::string n, std::string des):Item(n,des){}
 	void show();
 	std::string recover();
 };

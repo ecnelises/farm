@@ -8,13 +8,12 @@ Item::Item(std::string n, std::string des){
 	description = des;
 }
 
-std::string Item::getName() {
+std::string Item::getName()const {
 	return name;
 }
 
-std::string Item::getDes() {
+std::string Item::getDes() const{
 	return description;
 }
-
 
 

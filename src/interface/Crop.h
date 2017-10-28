@@ -6,6 +6,7 @@
 #define CROP_H
 
 #include "Entity.h"
+#include "Item.h"
 
 class Crop : public Entity {
 public:

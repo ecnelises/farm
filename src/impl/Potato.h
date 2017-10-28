@@ -3,11 +3,12 @@
 
 #include <iostream>
 #include "Crop.h"
+#include "Fruit.h"
 
 class Potato: public Crop{
 public:
-    virtual ~Potato();
-    Status getStatus(void) const;
+	virtual ~Potato() = default;
+    //Status getStatus(void) const;
     void creat(void){
         std::cout << "Crop:Potato:Creat:I'm created"<<std::endl;
     }
@@ -17,9 +18,17 @@ public:
     std::string getName(void) const{
         return name;
     }
+	Item* pick()
+	{
+		Fruit* it = new Fruit(this->productName,this->productDes);
+		return it;
+	}
 private:
-    Status status;
+    //Status status;
     std::string name;
+	std::string productName = "potato";
+	std::string productDes = "Item:Fruit:potato Produced by Potato";
+	int nutrient = 10;
 };
 
 #endif
