@@ -12,8 +12,12 @@
 class Farm : public Scene {
 public:
     Animal* pick(void);
+    virtual ~Farm() = default;
+
+    virtual Entity* spawn(void);
 private:
-    std::list<Animal*> animals;
+    // 由用户实现的工厂方法，根据用户自定义的各种生物，返回不同生物。
+    virtual Animal* createAnimal() = 0;
 };
 
 #endif // FARM_H
