@@ -2,12 +2,12 @@
 #define PLAYER_H
 
 #include "Point.h"
-#include <string>
 #include "Farm.h"
 #include "Backpack.h"
 #include "BackpackEntry.h"
 #include "State.h"
 #include "Item.h"
+#include <string>
 
 class Scene;
 class PlayerController;
@@ -20,18 +20,24 @@ public:
     bool move(const Scene& place);
     bool hunt(const Farm& farm, std::string type);
     void eat(const Food& food);
+    void use(Item* item);
 	void sleep();
-	// void SetState(State *state);
-    void getpack(BackpackEntry* backpackEntry);
+    void outputItems(void);
+	void SetState(State *state);
+    void acquire(Item* entry) {
+        backpack.add(entry);
+    }
     void setController(PlayerController* ctrl) {
         controller = ctrl;
     }
-	void UseItem(Item* item);
+    Backpack& getBackpack() {
+        return backpack;
+    }
 private:
     int strength;
     PlayerController* controller;
     Backpack backpack;
-	// State *m_state;
+	State *m_state;
 	int liveday;
 };
 
