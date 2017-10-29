@@ -6,7 +6,7 @@
 
 class Player;
 
-class Item {
+class Item : public BackpackEntry {
 public:
     virtual ~Item() = default;
     virtual void usedBy(Player* player) = 0;

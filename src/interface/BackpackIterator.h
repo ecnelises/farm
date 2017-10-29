@@ -1,25 +1,28 @@
-#ifndef FARM_ITERATOR_H
-#define FARM_ITERATOR_H
+#ifndef BACKPACK_ITERATOR_H
+#define BACKPACK_ITERATOR_H
 
-#include "Backpack.h"
+#include "BackpackEntry.h"
+#include <vector>
 
-typedef std::vector<BackpackEntry*>::iterator backpackIte;
+class Backpack;
 
 class BackpackIterator {
+    friend class Backpack;
 public:
-    BackpackIterator() : index(0) {}
-
-    // 重载等号运算符，在 application 中可以实现 backpackIterator = backpack，实现迭代器的行为
-    void operator=(Backpack& backpack) {
-        backpackIterator = backpack.begin();
-    }
-
-    BackpackEntry* next();
-    BackpackEntry* currentItem();
-
+    BackpackIterator() = delete;
+    BackpackIterator(const BackpackIterator&) = default;
+    BackpackIterator& operator = (const BackpackIterator&) = default;
+    ~BackpackIterator() = default;
+    BackpackIterator operator ++ (void);
+    BackpackIterator operator ++ (int);
+    BackpackEntry* operator * (void);
+    bool operator == (const BackpackIterator& bi);
+    bool operator != (const BackpackIterator& bi);
 private:
-    backpackIte backpackIterator;
+    BackpackIterator(std::vector<BackpackEntry*>::iterator it) {
+        backpackIterator = it;
+    }
+    std::vector<BackpackEntry*>::iterator backpackIterator;
 };
 
-
-#endif //FARM_ITERATOR_H
+#endif // BACKPACK_ITERATOR_H

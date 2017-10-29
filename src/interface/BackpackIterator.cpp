@@ -1,14 +1,24 @@
-//
-// Created by imban on 2017/10/28.
-//
-
 #include "BackpackIterator.h"
+#include <vector>
+#include <iterator>
 
-BackpackEntry* BackpackIterator::next() {
-    return backpackIterator.next();
+BackpackIterator BackpackIterator::operator ++ (void) {
+    ++backpackIterator;
+    return *this;
 }
 
-BackpackEntry* currentItem() {
-
+BackpackIterator BackpackIterator::operator ++ (int) {
+    return BackpackIterator(backpackIterator++);
 }
 
+BackpackEntry* BackpackIterator::operator * (void) {
+    return *backpackIterator;
+}
+
+bool BackpackIterator::operator == (const BackpackIterator& bi) {
+    return backpackIterator == bi.backpackIterator;
+}
+
+bool BackpackIterator::operator != (const BackpackIterator& bi) {
+    return backpackIterator != bi.backpackIterator;
+}

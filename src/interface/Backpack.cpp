@@ -1,24 +1,23 @@
 #include "Backpack.h"
 #include "iostream"
 
-virtual Backpack::~Backpack() {
+Backpack::~Backpack() {
     for (auto i : backpack) {
         delete i;
     }
 }
 
-void Backpack::show() {
-    std::cout << getName() << "  ";
-    for (int i = 0 ; i < backpack.size() ; i++) {
-        std::cout << i << ':';
-        backpack[i]->show();
-    }
-}
+// void Backpack::show() {
+//     std::cout << getName() << "  ";
+//     for (int i = 0 ; i < backpack.size() ; i++) {
+//         std::cout << i << ':';
+//         backpack[i]->show();
+//     }
+// }
 
-std::string Backpack::getName() {
-    return name;
+const char* Backpack::name() const {
+    return "Backpack";
 }
-
 
 void Backpack::push_back(BackpackEntry* backpackEntry) {
     backpack.push_back(backpackEntry);
@@ -33,10 +32,10 @@ bool Backpack::remove(int index) {
     return true;
 }
 
-std::vector<BackpackEntry*>::iterator Backpack::begin() {
+BackpackIterator Backpack::begin() {
     return backpack.begin();
 }
 
-std::vector<BackpackEntry*>::iterator Backpack::end() {
+BackpackIterator Backpack::end() {
     return backpack.end();
 }

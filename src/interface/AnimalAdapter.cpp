@@ -1,11 +1,10 @@
 #include "AnimalAdaptor.h"
+#include "Sheep.h"
 
-virtual Animal* AnimalAdaptor::adapt(string type) {
-    if (type == "pig") {
-        return new Pig();
-    } else if (type == "sheep") {
-        return new Sheep();
+Animal* AnimalAdaptor::adapt(const std::string& type) {
+    if (type == "sheep") {
+        return new Sheep;
+    } else {
+        return nullptr;
     }
-
-    return nullptr;
 }
