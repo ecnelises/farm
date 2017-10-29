@@ -12,8 +12,8 @@ void Application::run(void) {
     std::string command;
     CommandInterpreter intp;
     while (!exitFlag) {
-        std::cout << "Round begins.\n";
-        std::cin >> command;
+        std::cout << '\n';
+        std::getline(std::cin, command);
         std::unique_ptr<Command> p(intp.interpret(command));
         p->execute();
     }

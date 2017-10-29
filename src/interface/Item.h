@@ -1,19 +1,16 @@
-//modify by nature
 #ifndef ITEM_H
 #define ITEM_H
 
 #include <string>
 #include "BackpackEntry.h"
 
-class Item : public BackpackEntry {
+class Player;
+
+class Item {
 public:
-	Item(std::string n, std::string des);
-    virtual void show();
-	std::string getName();
-	std::string getDes();
-private:
-	std::string name;
-	std::string description;
+    virtual ~Item() = default;
+    virtual void usedBy(Player* player) = 0;
+    virtual const char* name() const = 0;
 };
 
 #endif

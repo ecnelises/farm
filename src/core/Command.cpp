@@ -3,7 +3,9 @@
 #include "Scene.h"
 #include "Entity.h"
 #include <iostream>
+#include <cstdlib>
 #include <sstream>
+#include <vector>
 #include <algorithm>
 #include <cctype>
 
@@ -22,6 +24,7 @@ static bool caseInsensitiveCompare(
 }
 
 static Scene* getSceneById(int id) {
+    std::cout << "method:getSceneById id:" << id << '\n';
     Scene* sce = nullptr;
     int cnt = 0;
     Application::instance().getMap().eachScene([&](auto scene){
@@ -39,30 +42,30 @@ CommandInterpreter::CommandInterpreter() {
 Command* CommandInterpreter::interpret(const std::string& cmd) {
     std::cout << "class:CommandInterpreter method:interpret\n";
     std::istringstream iss(cmd);
-    std::string s1;
-    iss >> s1;
-    if (caseInsensitiveCompare(s1, "list")) {
+    std::vector<std::string> words {
+        std::istream_iterator<std::string>{iss},
+        std::istream_iterator<std::string>{}
+    };
+    if (caseInsensitiveCompare(words[0], "list")) {
         return new ListCommand;
-    } else if (caseInsensitiveCompare(s1, "show")) {
-        int s2;
-        iss >> s2;
-        auto scene = getSceneById(s2);
+    } else if (caseInsensitiveCompare(words[0], "show")) {
+        auto scene = getSceneById(std::atoi(words[1].c_str()));
         if (scene == nullptr) {
             return new ErrorCommand(cmd);
         } else {
             return new ShowCommand(scene);
         }
-    } else if (caseInsensitiveCompare(s1, "help")) {
+    } else if (caseInsensitiveCompare(words[0], "help")) {
         return new HelpCommand;
-    } else if (caseInsensitiveCompare(s1, "plant")) {
-        int s2;
-        iss >> s2;
-        auto scene = getSceneById(s2);
+    } else if (caseInsensitiveCompare(words[0], "plant")) {
+        auto scene = getSceneById(std::atoi(words[1].c_str()));
         if (scene == nullptr) {
             return new ErrorCommand(cmd);
         } else {
             return new PlantCommand(scene);
         }
+    } else if (caseInsensitiveCompare(words[0], "quit")) { 
+        return new QuitCommand;
     } else {
         return new ErrorCommand(cmd);
     }

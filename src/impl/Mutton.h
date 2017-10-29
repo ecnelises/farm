@@ -5,9 +5,10 @@
 
 class Mutton : public Food {
 public:
-    virtual ~Mutton();
-    virtual int consume() const override;
+    Mutton() = default;
+    virtual ~Mutton() = default;
     virtual const char* name() const override;
+    virtual void usedBy(Player* player) override;
 };
 
 #endif
