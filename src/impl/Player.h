@@ -7,7 +7,7 @@
 #include "Backpack.h"
 #include "BackpackEntry.h"
 #include "State.h"
-#include "../interface/Item.h"
+#include "Item.h"
 
 class Scene;
 class PlayerController;
