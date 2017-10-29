@@ -7,6 +7,7 @@
 #include "Backpack.h"
 #include "BackpackEntry.h"
 #include "State.h"
+#include "../interface/Item.h"
 
 class Scene;
 class PlayerController;
@@ -25,6 +26,7 @@ public:
     void setController(PlayerController* ctrl) {
         controller = ctrl;
     }
+	void UseItem(Item* item);
 private:
     int strength;
     PlayerController* controller;

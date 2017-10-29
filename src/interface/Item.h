@@ -11,6 +11,7 @@ public:
     virtual void show();
 	std::string getName();
 	std::string getDes();
+	virtual void getUsedby(Player* player) = 0;
 private:
 	std::string name;
 	std::string description;

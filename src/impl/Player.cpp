@@ -64,3 +64,7 @@ void Player::getpack(BackpackEntry* backpackEntry)
 	// m_state->Operate(this);
     //backpack.push_back(backpackEntry);
 }
+
+void Player::UseItem(Item* item) {
+	item->getUsedby(this);
+}
