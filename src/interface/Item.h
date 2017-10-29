@@ -4,15 +4,13 @@
 
 #include <string>
 
-class Item{
+class Player;
+
+class Item {
 public:
-	Item(std::string n, std::string des);
-    virtual void show() = 0;
-	std::string getName();
-	std::string getDes();
-private:
-	std::string name;
-	std::string description;
+    virtual ~Item() = default;
+    virtual void usedBy(Player* player) = 0;
+    virtual const char* name() const = 0;
 };
 
 #endif

@@ -32,6 +32,10 @@ public:
 
     // 工厂方法，以生成新的场景
     void generateScene(void);
+
+    Player& getPlayer() {
+        return player.get();
+    }
 private:
     std::vector<Scene*> scenes;
     Positioned<Player> player;
