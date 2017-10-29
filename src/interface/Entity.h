@@ -5,9 +5,11 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include "Observer.h"
+
 class Item;
 
-class Entity {
+class Entity : public Observer {
 public:
     // 基类默认的虚析构函数
     virtual ~Entity() = default;
@@ -18,6 +20,8 @@ public:
 
     // 实体类别的名字
     virtual const char* typeName() const = 0;
+
+    virtual void getNotified(void) override;
 };
 
 #endif // ENTITY_H

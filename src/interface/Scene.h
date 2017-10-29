@@ -8,7 +8,7 @@
 #include "Observable.h"
 #include "Decorator.h"
 #include <functional>
-#include <list>
+#include <vector>
 #include <string>
 
 class Entity;
@@ -42,16 +42,20 @@ public:
 
     // 遍历每个实体
     void eachEntity(std::function<void(Entity*)> fn) {
-        for (auto& i : entities) {
+        for (auto i : entities) {
             fn(i);
         }
     }
+
+    // 获取其中的某一个
+    Entity* remove(int id);
+
 private:
     // 每个场景都具有一个独立的名字
     std::string name;
 
     // 场景对于其中的实体具有所有权关系
-    std::list<Entity*> entities;
+    std::vector<Entity*> entities;
 
 protected:
     // 装饰器

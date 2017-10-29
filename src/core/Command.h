@@ -5,6 +5,8 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
+#include "Entity.h"
+#include "Player.h"
 #include <string>
 
 class Application;
@@ -31,7 +33,7 @@ public:
 class ShowCommand : public Command {
 public:
     ShowCommand(Scene* e) : scene(e) {}
-    ~ShowCommand() = default;
+    virtual ~ShowCommand() = default;
     virtual void execute(void);
 private:
     Scene* scene;
@@ -50,19 +52,38 @@ public:
 class PlantCommand : public Command {
 public:
     PlantCommand(Scene* e) : scene(e) {}
-    ~PlantCommand() = default;
+    virtual ~PlantCommand() = default;
     virtual void execute(void);
 private:
     Scene* scene;
 };
 
+class KillCommand : public Command {
+public:
+    KillCommand(Entity* e, Player* plyr) : entity(e), player(plyr) {}
+    virtual ~KillCommand() { delete entity; }
+    virtual void execute(void);
+private:
+    Entity* entity;
+    Player* player;
+};
+
 class ErrorCommand : public Command {
 public:
     ErrorCommand(std::string s) : cmd(s) {}
-    ~ErrorCommand() = default;
+    virtual ~ErrorCommand() = default;
     virtual void execute(void);
 private:
     std::string cmd;
+};
+
+class StatusCommand : public Command {
+public:
+    StatusCommand(Player* plyr) : player(plyr) {}
+    virtual ~StatusCommand() = default;
+    virtual void execute(void);
+private:
+    Player* player;
 };
 
 #endif // COMMAND_H

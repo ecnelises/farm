@@ -6,11 +6,12 @@
 #define POSITIONED_H
 
 #include "Point.h"
+#include <utility>
 
 template<typename T>
 class Positioned {
 public:
-    Positioned(const T& val, Point<double> pos) : entity(val), position(pos) {}
+    Positioned(Point<double> pos) : position(pos) {}
     ~Positioned() = default;
 
     const Point<double>& getPosition() const {

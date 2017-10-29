@@ -1,6 +1,8 @@
 #ifndef BACKPACK_ENTRY_H
 #define BACKPACK_ENTRY_H
 
+#include <iostream>
+
 class BackpackEntry {
 public:
     virtual ~BackpackEntry() = default;

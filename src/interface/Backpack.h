@@ -8,8 +8,11 @@
 
 class Backpack : public BackpackEntry {
 public:
+    Backpack() = default;
+    Backpack(const Backpack&) = delete;
+    Backpack& operator = (const Backpack&) = delete;
     virtual ~Backpack();
-    void push_back(BackpackEntry* backpackEntry);
+    void add(BackpackEntry* entry);
     virtual const char* name() const;
     bool remove(int index);
     BackpackIterator begin();

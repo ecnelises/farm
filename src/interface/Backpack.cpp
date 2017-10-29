@@ -1,7 +1,9 @@
 #include "Backpack.h"
-#include "iostream"
+#include "Item.h"
+#include <iostream>
 
 Backpack::~Backpack() {
+    std::cout << "!!!\n";
     for (auto i : backpack) {
         delete i;
     }
@@ -19,16 +21,17 @@ const char* Backpack::name() const {
     return "Backpack";
 }
 
-void Backpack::push_back(BackpackEntry* backpackEntry) {
-    backpack.push_back(backpackEntry);
+void Backpack::add(BackpackEntry* entry) {
+    std::cout << "class:Backpack method:add\n";
+    backpack.push_back(entry);
 }
 
 bool Backpack::remove(int index) {
-    if (index < 0 || index >= backpack.size()) {
-        std::cout << "invalid index in Backpack::remove()";
+    std::cout << "class:Backpack method:remove\n";
+    if (index <= 0 || index > backpack.size()) {
         return false;
     }
-    backpack.erase(backpack.begin() + index);
+    backpack.erase(backpack.begin() + index - 1);
     return true;
 }
 

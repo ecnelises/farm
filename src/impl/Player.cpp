@@ -58,9 +58,15 @@ bool Player::hunt(const Farm& farm, std::string type)
     return true;
 }
 
-void Player::getpack(BackpackEntry* backpackEntry)
-{
-	// SetState(new GetPackState());
-	// m_state->Operate(this);
-    //backpack.push_back(backpackEntry);
+void Player::use(Item* item) {
+    std::cout << "class:Backpack method:use\n";
+    if (item != nullptr) {
+        item->usedBy(this);
+    }
+}
+
+void Player::outputItems(void) {
+    if (controller != nullptr) {
+        controller->getPlayerStatus();
+    }
 }

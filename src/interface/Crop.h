@@ -14,6 +14,8 @@ public:
 
     // 继承自基类的方法，作物被采摘后会掉落物品
     virtual Item* pick(void) = 0;
+
+    virtual const char* typeName(void) const = 0;
 };
 
 #endif

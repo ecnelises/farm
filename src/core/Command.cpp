@@ -55,6 +55,16 @@ Command* CommandInterpreter::interpret(const std::string& cmd) {
         } else {
             return new ShowCommand(scene);
         }
+    } else if (caseInsensitiveCompare(words[0], "kill")) {
+        auto scene = getSceneById(std::atoi(words[1].c_str()));
+        if (scene == nullptr) {
+            return new ErrorCommand(cmd);
+        }
+        auto entity = scene->remove(std::atoi(words[2].c_str()));
+        if (entity == nullptr) {
+            return new ErrorCommand(cmd);
+        }
+        return new KillCommand(entity, &(Application::instance().getMap().getPlayer()));
     } else if (caseInsensitiveCompare(words[0], "help")) {
         return new HelpCommand;
     } else if (caseInsensitiveCompare(words[0], "plant")) {
@@ -66,6 +76,8 @@ Command* CommandInterpreter::interpret(const std::string& cmd) {
         }
     } else if (caseInsensitiveCompare(words[0], "quit")) { 
         return new QuitCommand;
+    } else if (caseInsensitiveCompare(words[0], "status")){
+        return new StatusCommand(&(Application::instance().getMap().getPlayer()));
     } else {
         return new ErrorCommand(cmd);
     }
@@ -108,4 +120,19 @@ void PlantCommand::execute(void) {
 void ErrorCommand::execute(void) {
     std::cout << "class:ErrorCommand method:execute\n";
     std::cout << "Error in executing command: " << cmd << '\n';
+}
+
+void KillCommand::execute(void) {
+    std::cout << "class:KillCommand method:execute\n";
+    if (entity == nullptr || player == nullptr) {
+        return;
+    }
+    player->acquire(entity->pick());
+}
+
+void StatusCommand::execute(void) {
+    std::cout << "class:StatusCommand method:execute\n";
+    if (player != nullptr) {
+        player->outputItems();
+    }
 }
