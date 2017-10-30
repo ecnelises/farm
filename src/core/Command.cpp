@@ -4,6 +4,7 @@
 #include "Entity.h"
 #include <iostream>
 #include <cstdlib>
+#include <iterator>
 #include <sstream>
 #include <vector>
 #include <algorithm>
