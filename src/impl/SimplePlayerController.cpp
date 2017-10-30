@@ -16,3 +16,10 @@ void SimplePlayerController::getPlayerStatus(void) {
         std::cout << ++cnt << " : " << (*i)->name() << '\n';
     }
 }
+
+Facade* SimplePlayerController::opration(void) {
+	std::cout << "class:Facade"
+		"method:wrapOpration\n";
+	return nullptr;
+}
+
