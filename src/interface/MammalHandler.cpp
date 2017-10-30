@@ -1,4 +1,5 @@
 #include "MammalHandler.h"
+#include <iostream>
 
 MammalHandler::MammalHandler() {
     nameList.push_back("pig");

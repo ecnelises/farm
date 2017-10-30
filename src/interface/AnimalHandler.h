@@ -6,11 +6,11 @@
 
 class AnimalHandler {
 public:
-    virtual ~AnimalHandler();
+    virtual ~AnimalHandler() = default;
 
     virtual void handleRequest(std::string name) = 0;
     virtual void setNextRequest(AnimalHandler* handler) = 0;
-private:
+protected:
     AnimalHandler* myHandler;
     std::vector<std::string> nameList;
 };

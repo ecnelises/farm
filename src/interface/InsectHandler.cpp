@@ -1,4 +1,5 @@
 #include "InsectHandler.h"
+#include <iostream>
 
 InsectHandler::InsectHandler() {
     nameList.push_back("dragonfly");
