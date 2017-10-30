@@ -7,13 +7,30 @@
 template<typename T>
 class FlyWeight {
 public:
-    FlyWeight(T *val);
+    FlyWeight(T *val) {
+        entity = val;
+        refcnt = new unsigned(1);
+    }
 
-    FlyWeight(const FlyWeight &fw);
+    FlyWeight(const FlyWeight &fw) {
+        entity = fw.entity;
+        refcnt = fw.refcnt;
+        ++(*refcnt);
+    }
 
-    FlyWeight(FlyWeight &&fw);
+    FlyWeight(FlyWeight &&fw) {
+        entity = fw.entity;
+        refcnt = fw.refcnt;
+        fw.entity = nullptr;
+        fw.refcnt = nullptr;
+    }
 
-    ~FlyWeight();
+    ~FlyWeight() {
+        if (--(*refcnt) == 0) {
+            delete entity;
+            delete refcnt;
+        }
+    }
 
 private:
     unsigned *refcnt;
