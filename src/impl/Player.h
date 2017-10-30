@@ -23,7 +23,7 @@ public:
     void use(Item* item);
 	void sleep();
     void outputItems(void);
-	// void SetState(State *state);
+	void SetState(State *state);
     void acquire(Item* entry) {
         backpack.add(entry);
     }
@@ -37,7 +37,7 @@ private:
     int strength;
     PlayerController* controller;
     Backpack backpack;
-	// State *m_state;
+	State *m_state;
 	int liveday;
 };
 
