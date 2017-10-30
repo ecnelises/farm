@@ -1,3 +1,0 @@
-C:/Users/tan35/ClionProjects/farm/cmake-build-debug/CMakeFiles/farm.dir
-C:/Users/tan35/ClionProjects/farm/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/tan35/ClionProjects/farm/cmake-build-debug/CMakeFiles/rebuild_cache.dir
