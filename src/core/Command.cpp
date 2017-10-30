@@ -3,13 +3,12 @@
 #include "Scene.h"
 #include "Entity.h"
 #include <iostream>
-#include <cstdlib>
 #include <iterator>
+#include <cstdlib>
 #include <sstream>
 #include <vector>
 #include <algorithm>
 #include <cctype>
-#include <iterator>
 
 static bool caseInsensitiveCompare(
         const std::string& s1, const std::string& s2) {
