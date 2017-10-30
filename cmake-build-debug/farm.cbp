@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="farm"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/tan35/ClionProjects/farm/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="farm">
+				<Option output="C:/Users/tan35/ClionProjects/farm/cmake-build-debug/build/farm.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="./build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/tan35/ClionProjects/farm/src"/>
+					<Add directory="C:/Users/tan35/ClionProjects/farm/src/core"/>
+					<Add directory="C:/Users/tan35/ClionProjects/farm/src/ext"/>
+					<Add directory="C:/Users/tan35/ClionProjects/farm/src/base"/>
+					<Add directory="C:/Users/tan35/ClionProjects/farm/src/impl"/>
+					<Add directory="C:/Users/tan35/ClionProjects/farm/src/interface"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 farm"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="farm/fast">
+				<Option output="C:/Users/tan35/ClionProjects/farm/cmake-build-debug/build/farm.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="./build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/tan35/ClionProjects/farm/src"/>
+					<Add directory="C:/Users/tan35/ClionProjects/farm/src/core"/>
+					<Add directory="C:/Users/tan35/ClionProjects/farm/src/ext"/>
+					<Add directory="C:/Users/tan35/ClionProjects/farm/src/base"/>
+					<Add directory="C:/Users/tan35/ClionProjects/farm/src/impl"/>
+					<Add directory="C:/Users/tan35/ClionProjects/farm/src/interface"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 farm/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/tan35/ClionProjects/farm/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/tan35/ClionProjects/farm/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/tan35/ClionProjects/farm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/base/Decorator.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/base/Decorator.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/base/Observable.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/base/Observable.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/base/Observer.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/base/Observer.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/core/Application.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/core/Application.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/core/Command.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/core/Command.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/core/main.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/ext/PrintInfoStrategies.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/ext/PrintInfoStrategies.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Bread.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Bread.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Farm.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Farm.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Fodder.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Fodder.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Map.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Map.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Mutton.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Mutton.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Pasture.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Player.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Player.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/PrepareFodder.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/PrepareFodder.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/PrintInfo.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/PrintInfo.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Sheep.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Sheep.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/SimplePlayerController.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/SimplePlayerController.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/SubFodderBuilders.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/SubFodderBuilders.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Wheat.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/impl/Wheat.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/interface/AnimalAdapter.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/interface/Backpack.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/interface/Backpack.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/interface/BackpackIterator.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/interface/BackpackIterator.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/interface/Entity.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/interface/Entity.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/interface/FlyWeight.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/interface/FlyWeight.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/interface/FlyWeightFactory.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/interface/FlyWeightFactory.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/interface/Scene.cpp">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/src/interface/Scene.h">
+			<Option target="farm"/>
+		</Unit>
+		<Unit filename="C:/Users/tan35/ClionProjects/farm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
