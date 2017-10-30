@@ -6,6 +6,7 @@
 #include <cmath>
 #include <iostream>
 #include "SpecificState.h"
+#include "StrengthHandler.h"
 
 Player::~Player() {
 	delete controller;
@@ -20,6 +21,11 @@ bool Player::move(const Scene& scene)
 {
 	 SetState(new MoveState());
 	 m_state->Operate(this);
+	 Handler* l_handler = new LowStrengthHandler(NULL);
+	 Handler* h_handler = new HighStrengthHandler(l_handler);
+	 h_handler->dealWith(this->strength);
+	 delete h_handler;
+	 delete l_handler;
     /*int d = std::floor(Scene::distance(scene.getX(), scene.getY(), x, y));
     if (strength < d) {
         std::cout << "Move failed.\n";
