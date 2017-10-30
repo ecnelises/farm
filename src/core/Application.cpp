@@ -11,9 +11,13 @@ void Application::run(void) {
     exitFlag = false;
     std::string command;
     CommandInterpreter intp;
+
+    // exitFlag 是退出标志，可以通过另外的方法进行修改
     while (!exitFlag) {
         std::cout << '\n';
         std::getline(std::cin, command);
+        
+        // 智能指针，保证作用域结束之后内存会被释放
         std::unique_ptr<Command> p(intp.interpret(command));
         p->execute();
     }
