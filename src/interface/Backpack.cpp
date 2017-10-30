@@ -3,7 +3,6 @@
 #include <iostream>
 
 Backpack::~Backpack() {
-    std::cout << "!!!\n";
     for (auto i : backpack) {
         delete i;
     }

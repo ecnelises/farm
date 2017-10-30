@@ -5,9 +5,10 @@
 
 class Player;
 
- class State {
- public:
- 	virtual void Operate(Player* player) = 0;
- };
+class State {
+public:
+    virtual ~State() = default;
+	virtual void Operate(Player* player) = 0;
+};
 
 #endif
