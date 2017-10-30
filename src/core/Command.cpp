@@ -7,23 +7,25 @@
 #include <cstdlib>
 #include <sstream>
 #include <vector>
+#include <map>
+#include <functional>
 #include <algorithm>
 #include <cctype>
 
-static bool caseInsensitiveCompare(
-        const std::string& s1, const std::string& s2) {
-    if (s1.size() != s2.size()) {
-        return false;
+// 大小写不敏感地比较两个字符串
+struct CaseInsensitiveLess {
+    bool operator() (std::string s1, std::string s2) const {
+        std::for_each(std::begin(s1), std::end(s1), [](char& c){
+            c = std::tolower(c);
+        });
+        std::for_each(std::begin(s2), std::end(s2), [](char& c){
+            c = std::tolower(c);
+        });
+        return s1 < s2;
     }
-    for (auto i = s1.cbegin(), j = s2.cbegin();
-            i != s1.cend() && j != s2.cend(); ++i, ++j) {
-        if (std::tolower(*i) != std::tolower(*j)) {
-            return false;
-        }
-    }
-    return true;
-}
+};
 
+// 从编号获取对应的场景
 static Scene* getSceneById(int id) {
     std::cout << "method:getSceneById id:" << id << '\n';
     Scene* sce = nullptr;
@@ -40,45 +42,72 @@ CommandInterpreter::CommandInterpreter() {
     std::cout << "CommandInterpreter initialized.\n";
 }
 
+// 解释命令的主函数
 Command* CommandInterpreter::interpret(const std::string& cmd) {
     std::cout << "class:CommandInterpreter method:interpret\n";
     std::istringstream iss(cmd);
+    // 利用 istream_iterator，将字符串拆成多个分隔的单词
     std::vector<std::string> words {
         std::istream_iterator<std::string>{iss},
         std::istream_iterator<std::string>{}
     };
-    if (caseInsensitiveCompare(words[0], "list")) {
-        return new ListCommand;
-    } else if (caseInsensitiveCompare(words[0], "show")) {
-        auto scene = getSceneById(std::atoi(words[1].c_str()));
-        if (scene == nullptr) {
-            return new ErrorCommand(cmd);
-        } else {
-            return new ShowCommand(scene);
-        }
-    } else if (caseInsensitiveCompare(words[0], "kill")) {
-        auto scene = getSceneById(std::atoi(words[1].c_str()));
-        if (scene == nullptr) {
-            return new ErrorCommand(cmd);
-        }
-        auto entity = scene->remove(std::atoi(words[2].c_str()));
-        if (entity == nullptr) {
-            return new ErrorCommand(cmd);
-        }
-        return new KillCommand(entity, &(Application::instance().getMap().getPlayer()));
-    } else if (caseInsensitiveCompare(words[0], "help")) {
-        return new HelpCommand;
-    } else if (caseInsensitiveCompare(words[0], "plant")) {
-        auto scene = getSceneById(std::atoi(words[1].c_str()));
-        if (scene == nullptr) {
-            return new ErrorCommand(cmd);
-        } else {
-            return new PlantCommand(scene);
-        }
-    } else if (caseInsensitiveCompare(words[0], "quit")) { 
-        return new QuitCommand;
-    } else if (caseInsensitiveCompare(words[0], "status")){
-        return new StatusCommand(&(Application::instance().getMap().getPlayer()));
+    typedef std::vector<std::string> string_vec;
+    typedef std::function<Command*(const string_vec&, const std::string&)> handler_type;
+    // 为了书写简洁引入的临时宏定义
+#define FUNC [](const string_vec& vec, const std::string& cmd) -> Command*
+    // 命令和对应函数的列表
+    static std::map<std::string, handler_type, CaseInsensitiveLess> handlers {
+        {"list", FUNC { return new ListCommand; }},
+        {"quit", FUNC { return new QuitCommand; }},
+        {"help", FUNC { return new HelpCommand; }},
+        {"show", FUNC {
+            if (vec.size() < 2) {
+                return new ErrorCommand(cmd);
+            }
+            auto scene = getSceneById(std::atoi(vec[1].c_str()));
+            if (scene == nullptr) {
+                return new ErrorCommand(cmd);
+            } else {
+                return new ShowCommand(scene);
+            }
+        }},
+        {"kill", FUNC {
+            if (vec.size() < 3) {
+                return new ErrorCommand(cmd);
+            }
+            auto scene = getSceneById(std::atoi(vec[1].c_str()));
+            if (scene == nullptr) {
+                return new ErrorCommand(cmd);
+            }
+            auto entity = scene->remove(std::atoi(vec[2].c_str()));
+            if (entity == nullptr) {
+                return new ErrorCommand(cmd);
+            }
+            return new KillCommand(
+                entity, &(Application::instance().getMap().getPlayer())
+            );
+        }},
+        {"plant", FUNC {
+            if (vec.size() < 2) {
+                return new ErrorCommand(cmd);
+            }
+            auto scene = getSceneById(std::atoi(vec[1].c_str()));
+            if (scene == nullptr) {
+                return new ErrorCommand(cmd);
+            } else {
+                return new PlantCommand(scene);
+            }
+        }},
+        {"status", FUNC { return new StatusCommand(
+            &(Application::instance().getMap().getPlayer())
+        );}}
+    };
+#undef FUNC
+    // 防止空白命令
+    if (words.size() == 0) {
+        return new ErrorCommand("(empty command)");
+    } else if (handlers.find(words[0]) != handlers.cend()) {
+        return handlers[words[0]](words, cmd);
     } else {
         return new ErrorCommand(cmd);
     }
