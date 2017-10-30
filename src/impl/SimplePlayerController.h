@@ -11,6 +11,7 @@ public:
     virtual ~SimplePlayerController() = default;
     virtual void takeAction(void) override;
     virtual void getPlayerStatus(void) override;
+	virtual Facade* opration(void);
 private:
     Player* player;
 };
